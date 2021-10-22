@@ -253,18 +253,9 @@ public class MainActivity extends AppCompatActivity {
             } else if (texto.contentEquals("/")) {
                 operacion = "/";
             }
-            else if (texto.contentEquals(null)){
-                operacion="ERROR";
-            }
-            texto_resultado = texto_resultado + operacion;
-            resultado.setText(texto_resultado);
-        }
-        else if(numero1!=0 && numero2==0)
-        {
-            if(texto.contentEquals("Cosinus")){
+            else if(texto.contentEquals("Cosinus")){
                 resultado_numerico=Math.cos(numero1);
                 texto_resultado=Double.toString(resultado_numerico);
-                resultado.setText(texto_resultado);
                 numero1 = resultado_numerico;
                 texto_resultado=Double.toString(resultado_numerico);
                 numero2=0;
@@ -273,7 +264,6 @@ public class MainActivity extends AppCompatActivity {
             else if(texto.contentEquals("Sinus")){
                 resultado_numerico=Math.sin(numero1);
                 texto_resultado=Double.toString(resultado_numerico);
-                resultado.setText(texto_resultado);
                 numero1 = resultado_numerico;
                 texto_resultado=Double.toString(resultado_numerico);
                 numero2=0;
@@ -282,14 +272,19 @@ public class MainActivity extends AppCompatActivity {
             else if(texto.contentEquals("Tangent")) {
                 resultado_numerico = Math.tan(numero1);
                 texto_resultado=Double.toString(resultado_numerico);
-                resultado.setText(texto_resultado);
                 numero1 = resultado_numerico;
                 texto_resultado=Double.toString(resultado_numerico);
                 numero2=0;
                 numeroclicks2=0;
             }
+            else if (texto.contentEquals(null)){
+                operacion="ERROR";
+            }
+            texto_resultado = texto_resultado + operacion;
+            resultado.setText(texto_resultado);
+
         }
-        if(texto.contentEquals("=") && numero1!=0 && numero2!=0){
+        else if(texto.contentEquals("=") && numero1!=0 && numero2!=0){
             if(operacion.contentEquals("+")){
                 resultado_numerico=numero1+numero2;
             }
